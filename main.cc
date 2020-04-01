@@ -1,8 +1,7 @@
 #include <iostream>
-#include "distance.h"
+#include "distance_api.h"
 
 int main()
 {
-   Distance dis = {"datatest/test.txt","datatest/test2.txt"};
-   std::cout << "The distance is = " << dis.ComputeDistance() <<std::endl;
+   std::cout << "The distance is = " << ccdist("datatest/test.txt","datatest/test2.txt") << std::endl;
 }

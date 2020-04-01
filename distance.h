@@ -7,10 +7,10 @@ class Distance {
     public:
         Distance(std::string path_document_first, std::string path_document_second);
         ~Distance();
-        std::string GetPathDocumentFirst() const;
-        std::string GetPathDocumentSecond() const;
         double ComputeDistance();
     private:
+        std::string GetPathDocumentFirst() const;
+        std::string GetPathDocumentSecond() const;
         int ComputeInnerProduct(std::unordered_multimap<std::string, int>& map_document_first, std::unordered_multimap<std::string, int>& map_document_second);
 
     private:
