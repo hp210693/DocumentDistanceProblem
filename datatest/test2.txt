@@ -1,3 +1,2 @@
 Algorithms are fun and educating!
-Solving the algorithms are as fun writing about them.
-Written by a randome person
+
