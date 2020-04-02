@@ -1,4 +1,4 @@
-#include "../distance.h"
+#include "../document_distance/distance.h"
 #include "distance_api.h"
 #include <string>
 

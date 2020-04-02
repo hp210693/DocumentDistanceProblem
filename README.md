@@ -3,6 +3,13 @@
     - Compiler: GCC 9.2.1
     - IDE: Visual Studio Code
 
+# Guideline to create shared library and executable file by cmake
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make
+    - ./ccdist path_to_first_doc path_to_second_doc
+
 # Guideline to create shared library and executable file by manual
     - Shared library 
         + g++ -fPIC -c -std=c++17 *.cc api/*.cc
