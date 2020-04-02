@@ -3,6 +3,14 @@
     - Compiler: GCC 9.2.1
     - IDE: Visual Studio Code
 
+# Guideline for run
+    - Must be opened Terminal (mandatory)
+    - cd your_path/DocumentDistanceProblem/
+    - sudo mv libccdist.so /usr/lib/
+    - sudo ldconfig
+    - ./ccdist path_to_first_doc path_to_second_doc
+    - Example: ./ccdist "datatest/test.txt" "datatest/test2.txt"
+
 # The complexity (big O) of the algorithm
     - O(ComputeDistance) <=> O(GetWords) + O(ComputeInnerProduct) <=> O(n) + O(n) = O(n)
 
