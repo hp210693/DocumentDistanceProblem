@@ -51,16 +51,16 @@ double Distance::ComputeDistance() {
     // Get words into each document
     document_first.GetWords(map_document_first);
     document_sencond.GetWords(map_document_second);
-
+    
     int numerator = ComputeInnerProduct(map_document_first, map_document_second);
 
-    int denominator = std::sqrt(ComputeInnerProduct(map_document_first, map_document_first) * ComputeInnerProduct(map_document_second, map_document_second));
+    double denominator = std::sqrt(ComputeInnerProduct(map_document_first, map_document_first) * ComputeInnerProduct(map_document_second, map_document_second));
 
     return std::acos(numerator / denominator);
 }
 
 /**
- * @brief 
+ * @brief Compute inner product
  * 
  * @param map_document_first Contain a map of words have counted frequency
  * @param map_document_second Contain a map of words have counted frequency
@@ -68,7 +68,7 @@ double Distance::ComputeDistance() {
  */
 int Distance::ComputeInnerProduct(std::unordered_multimap<std::string, int>& map_document_first, std::unordered_multimap<std::string, int>& map_document_second) {
     int sum = 0;
-    for (auto [key, value] : map_document_first) {
+    for (auto& [key, value] : map_document_first) {
         if (map_document_second.find(key) != map_document_second.end()) {
             sum += value * map_document_second.find(key)->second;
         }
