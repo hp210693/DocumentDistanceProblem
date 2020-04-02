@@ -3,6 +3,17 @@
     - Compiler: GCC 9.2.1
     - IDE: Visual Studio Code
 
+# Guideline to create shared library and executable file by manual
+    - Shared library 
+        + g++ -fPIC -c -std=c++17 *.cc api/*.cc
+        + g++ -shared -o libdist.so *.o
+        + Create shared library success
+    - Executable file
+        + g++ -c main.cc
+        + g++ -o ccdist main.o libdist.so
+        + rm *.o
+        + Create executable file success
+
 # Guideline for run
     - Must be opened Terminal (mandatory)
     - cd your_path/DocumentDistanceProblem/
