@@ -12,22 +12,30 @@
 
 # Guideline to create shared library and executable file by manual
     - Shared library 
-        + g++ -fPIC -c -std=c++17 *.cc api/*.cc
-        + g++ -shared -o libdist.so *.o
+        + g++ -m64 -fPIC -c -std=c++17 document_distance/*.cc api/*.cc
+        + g++ -m64 -shared -o libdocument_distance.so *.o
         + Create shared library success
     - Executable file
-        + g++ -c main.cc
-        + g++ -o ccdist main.o libdist.so
+        + g++ -m64 -c main.cc
+        + g++ -m64 -o ccdist main.o libdocument_distance.so
         + rm *.o
         + Create executable file success
+
+# Check file x32 or x64 bit
+    - objdump -f document.o | grep ^architecture
+        + architecture: i386 => x32 bit
+        + architecture: i386:x86-64 => x64 bit
+    - file document.o
+        + document.o: ELF 32-bit LSB relocatable, Intel 80386, version 1 (SYSV), not stripped => x32 bit
+        + document.o: ELF 64-bit LSB relocatable, x86-64, version 1 (SYSV), not stripped => x64 bit
 
 # Guideline for run
     - Must be opened Terminal (mandatory)
     - cd your_path/DocumentDistanceProblem/
-    - sudo mv libccdist.so /usr/lib/
+    - sudo cp libdocument_distance.so /usr/lib/
     - sudo ldconfig
     - ./ccdist path_to_first_doc path_to_second_doc
-    - Example: ./ccdist "datatest/test.txt" "datatest/test2.txt"
+    - Example: ./ccdist "data_test/test.txt" "data_test/test2.txt"
 
 # The complexity (big O) of the algorithm
     - O(ComputeDistance) <=> O(GetWords) + O(ComputeInnerProduct) <=> O(n) + O(n) = O(n)
